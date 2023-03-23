@@ -1,4 +1,4 @@
-import { Airport } from './Airport';
+import { Airport } from './components/airports/airport.types';
 
 export const AIRPORTS: Airport[] = [
   {
