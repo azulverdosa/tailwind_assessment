@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  title: string = 'Tailwind Assessment';
+  title: string = 'Tailwind';
 
   constructor() {}
   ngOnInit(): void {}
+
+  updateTimerSelect() {
+    console.log('Time for automatic update');
+  }
 }
