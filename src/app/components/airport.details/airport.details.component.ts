@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Airport } from '../airports/airport.types';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-airport-details',
@@ -8,6 +9,7 @@ import { Airport } from '../airports/airport.types';
 })
 export class AirportDetailsComponent implements OnInit {
   @Input() airport: Airport;
+  faTimes = faTimes;
 
   constructor() {}
   ngOnInit(): void {}
