@@ -5,7 +5,6 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError, retry } from 'rxjs/operators';
 
 import { Airport } from '../components/airports/airport.types';
-import { AIRPORTS } from 'src/app/airportsData';
 
 const httpOptions = {
   headers: new HttpHeaders({
