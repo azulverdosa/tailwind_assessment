@@ -13,4 +13,8 @@ export class AirportDetailsComponent implements OnInit {
 
   constructor() {}
   ngOnInit(): void {}
+
+  onClick() {
+    console.log('Do something');
+  }
 }
