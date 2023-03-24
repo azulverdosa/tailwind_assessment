@@ -1,7 +1,11 @@
 <div class="airport">
   <h3>
     {{ airport.name }}
-    <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
+    <fa-icon
+      (click)="onClick()"
+      [ngStyle]="{ color: 'red' }"
+      [icon]="faTimes"
+    ></fa-icon>
   </h3>
   <p>{{ airport.icao }}</p>
 </div>
