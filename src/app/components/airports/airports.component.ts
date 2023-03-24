@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AirportsService } from 'src/app/services/airports.service';
 import { Airport } from './airport.types';
-import { AIRPORTS } from 'src/app/airportsData';
 
 @Component({
   selector: 'app-airports',
@@ -8,8 +8,16 @@ import { AIRPORTS } from 'src/app/airportsData';
   styleUrls: ['./airports.component.css'],
 })
 export class AirportsComponent implements OnInit {
-  airports: Airport[] = AIRPORTS;
+  airports: Airport[] = [];
 
-  constructor() {}
-  ngOnInit(): void {}
+  //add service as provider into constructor
+  constructor(private airportService: AirportsService) {}
+
+  ngOnInit(): void {
+    //ngOnInit executes on initial load
+    //subscribe to the Observable
+    this.airportService.getAirports().subscribe((airports) => {
+      this.airports = airports;
+    });
+  }
 }
