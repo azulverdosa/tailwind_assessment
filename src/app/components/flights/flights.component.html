@@ -1,0 +1,6 @@
+<!-- interate over flight data -->
+<!-- pass in flight property euqal to the individual flight -->
+<app-flight-details
+  *ngFor="let flight of flights"
+  [flight]="flight"
+></app-flight-details>
