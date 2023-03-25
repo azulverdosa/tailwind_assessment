@@ -50,5 +50,7 @@ export class MapComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.initMap();
     this.markerService.plotAirportMarkers(this.map);
+    this.markerService.plotCapitalMarkers(this.map);
+    this.markerService.plotFlightMarkers(this.map);
   }
 }
