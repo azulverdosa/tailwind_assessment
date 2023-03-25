@@ -1,74 +1,78 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as L from 'leaflet';
 
-const data = [
-  {
-    icao: 'CYYZ',
-    latitude: 43.676667,
-    longitude: -79.630556,
-    name: 'Toronto Pearson International Airport',
-  },
-  {
-    icao: 'CYVR',
-    latitude: 49.194722,
-    longitude: -123.183889,
-    name: 'Vancouver International Airport',
-  },
-  {
-    icao: 'CYYC',
-    latitude: 51.1225,
-    longitude: -114.013333,
-    name: 'Calgary International Airport',
-  },
-  {
-    icao: 'CYOW',
-    latitude: 45.3225,
-    longitude: -75.667222,
-    name: 'Ottawa Macdonald-Cartier International Airport',
-  },
-  {
-    icao: 'CYEG',
-    latitude: 53.31,
-    longitude: -113.579444,
-    name: 'Edmonton International Airport',
-  },
-  {
-    icao: 'CYHZ',
-    latitude: 44.879722,
-    longitude: -63.510278,
-    name: 'Halifax Stanfield International Airport',
-  },
-];
+import { CAPITALS } from '../mock_data/capital_cities';
+import { Flight } from '../components/flights/flight.types';
+import { FlightsService } from 'src/app/services/flights.service';
+import { Airport } from '../components/airports/airport.types';
+import { AirportsService } from './airports.service';
+
+import * as Leaflet from 'leaflet';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MarkerService {
-  capitals: string = '/assets/data/usa-capitals.geojson';
+  //assign as property of component
+  flights: Flight[] = [];
+  airports: Airport[] = [];
 
-  constructor(private http: HttpClient) {}
+  //add providers
+  constructor(
+    // private http: HttpClient,
+    private flightService: FlightsService,
+    private airportService: AirportsService
+  ) {}
 
-  plotAirportMarkers(map: L.Map | L.LayerGroup<any>): void {
-    for (const airport of data) {
-      const code = airport.icao;
-      const long = airport.longitude;
-      const lat = airport.latitude;
-      const name = airport.name;
+  plotFlightMarkers(map: Leaflet.Map | Leaflet.LayerGroup<any>): void {
+    this.flightService.getFlights().subscribe((flights) => {
+      this.flights = flights;
+      for (const flight of flights) {
+        //TODO help with this conditional
+        if (flight.longitude && flight.latitude) {
+          const long = flight.longitude;
+          const lat = flight.latitude;
 
-      const marker = L.marker([lat, long]);
+          const circle = Leaflet.circleMarker([lat, long], {
+            radius: 3,
+          }).setStyle({
+            color: 'green',
+          });
 
-      marker.addTo(map);
+          circle.addTo(map);
+        }
+      }
+      console.log('marker.service.ts', flights);
+    });
+  }
+
+  plotAirportMarkers(map: Leaflet.Map | Leaflet.LayerGroup<any>): void {
+    this.airportService.getAirports().subscribe((airports) => {
+      this.airports = airports;
+      for (const airport of airports) {
+        {
+          const code = airport.icao;
+          const long = airport.longitude;
+          const lat = airport.latitude;
+          const name = airport.name;
+
+          const marker = Leaflet.marker([lat, long]);
+
+          marker.addTo(map);
+        }
+      }
+      console.log('marker.service.ts', airports);
+    });
+  }
+
+  plotCapitalMarkers(map: Leaflet.Map | Leaflet.LayerGroup<any>): void {
+    for (const cap of CAPITALS) {
+      const long = cap.longitude;
+      const lat = cap.latitude;
+
+      const circle = Leaflet.circleMarker([lat, long], { radius: 0 });
+
+      circle.addTo(map);
     }
-
-    // this.http.get(this.capitals).subscribe((res: any) => {
-    // for (const c of res.features) {
-    //   const lon = c.geometry.coordinates[0];
-    //   const lat = c.geometry.coordinates[1];
-    //   const marker = L.marker([lat, lon]);
-
-    //   marker.addTo(map);
-    // }
-    // });
   }
 }
