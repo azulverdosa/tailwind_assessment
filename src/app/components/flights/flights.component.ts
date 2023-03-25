@@ -14,6 +14,7 @@ export class FlightsComponent implements OnInit {
 
   //add FlightService as provider
   constructor(private flightService: FlightsService) {}
+
   ngOnInit(): void {
     //subscribe to Observable
     this.flightService.getFlights().subscribe((flights) => {

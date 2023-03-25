@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AirportsService } from 'src/app/services/airports.service';
+
 import { Airport } from './airport.types';
+import { AirportsService } from 'src/app/services/airports.service';
 
 @Component({
   selector: 'app-airports',
@@ -14,12 +15,9 @@ export class AirportsComponent implements OnInit {
   constructor(private airportService: AirportsService) {}
 
   ngOnInit(): void {
-    //ngOnInit executes on initial load
     //subscribe to the Observable
     this.airportService.getAirports().subscribe((airports) => {
       this.airports = airports;
-
-      console.log('airports', airports);
     });
   }
 }
