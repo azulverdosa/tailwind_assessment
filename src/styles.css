@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import "~leaflet/dist/leaflet.css";
+/* @import "./node_modules/leaflet/dist/leaflet.css"; */
 
 * {
   box-sizing: border-box;
@@ -11,6 +13,8 @@ body {
 }
 
 .container {
+  /* display: flex;
+  flex-direction: row; */
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
@@ -73,4 +77,9 @@ body {
 .form-control-check input {
   flex: 2;
   height: 20px;
+}
+
+.map-container {
+  height: 600px;
+  width: auto;
 }
