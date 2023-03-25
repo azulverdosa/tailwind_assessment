@@ -1,8 +1,22 @@
 <header>
   <h1>{{ title }}</h1>
-  <app-button
+  <!-- <app-button
     color="green"
     text="Update Time"
     (btnClick)="updateTimerSelect()"
-  ></app-button>
+  ></app-button> -->
+  <ul class="container">
+    <li>
+      <fa-icon [ngStyle]="{ color: 'green' }" [icon]="dotCircle"></fa-icon>
+      Flight on Route
+    </li>
+    <li>
+      <fa-icon [ngStyle]="{ color: '#0398fc' }" [icon]="pin"></fa-icon>
+      Airport
+    </li>
+    <li>
+      <fa-icon [ngStyle]="{ color: '#0398fc' }" [icon]="circle"></fa-icon>
+      Capital City
+    </li>
+  </ul>
 </header>
