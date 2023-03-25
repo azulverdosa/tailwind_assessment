@@ -18,6 +18,8 @@ export class AirportsComponent implements OnInit {
     //subscribe to the Observable
     this.airportService.getAirports().subscribe((airports) => {
       this.airports = airports;
+
+      console.log('airports', airports);
     });
   }
 }
