@@ -12,6 +12,8 @@ import { ButtonComponent } from './components/button/button.component';
 import { AirportsComponent } from './components/airports/airports.component';
 import { AirportDetailsComponent } from './components/airport.details/airport.details.component';
 import { MapComponent } from './components/map/map.component';
+import { FlightsComponent } from './components/flights/flights.component';
+import { FlightDetailsComponent } from './components/flight-details/flight-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { MapComponent } from './components/map/map.component';
     AirportsComponent,
     AirportDetailsComponent,
     MapComponent,
+    FlightsComponent,
+    FlightDetailsComponent,
   ],
   imports: [
     BrowserModule,
