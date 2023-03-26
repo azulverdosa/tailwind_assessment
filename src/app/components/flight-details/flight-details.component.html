@@ -1,17 +1,9 @@
-<!-- TODO: adjust CSS styling from tasks to flights and airports -->
-<div class="flight">
-  <h3>
-    FLIGHT {{ flight.flightNumber }}
-    <fa-icon [ngStyle]="{ color: 'purple' }" [icon]="faCoffee"></fa-icon>
-  </h3>
-  <!-- conditioanlly render if currently in flight, if not render left at __, arrived at__ -->
-  <span>
-    <p>Leaving from: {{ flight.from }} at {{ flight.departsAt }}</p>
-    <p>Arriving at: {{ flight.to }} ETA: {{ flight.arrivesAt }}</p>
-  </span>
-  <span *ngIf="flight.longitude">
-    Current Location:
-    <p>{{ flight.longitude }} long</p>
-    <p>{{ flight.latitude }} lat</p>
-  </span>
+<!-- TODO to later be able to display flights with lat & long = null -->
+
+<div *ngIf="!flight.longitude && !flight.latitude" class="flight">
+  <h3>FLIGHT {{ flight.flightNumber }}</h3>
+  <ul>
+    <li>Leaving from: {{ flight.from }} at {{ flight.departsAt }}</li>
+    <li>Arriving at: {{ flight.to }} ETA: {{ flight.arrivesAt }}</li>
+  </ul>
 </div>
