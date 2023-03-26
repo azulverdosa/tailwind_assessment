@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 import { CAPITALS } from '../mock_data/capital_cities';
 import { Flight } from '../components/flights/flight.types';
@@ -13,13 +12,10 @@ import * as Leaflet from 'leaflet';
   providedIn: 'root',
 })
 export class MarkerService {
-  //assign as property of component
   flights: Flight[] = [];
   airports: Airport[] = [];
 
-  //add providers
   constructor(
-    // private http: HttpClient,
     private flightService: FlightsService,
     private airportService: AirportsService
   ) {}
@@ -28,7 +24,6 @@ export class MarkerService {
     this.flightService.getFlights().subscribe((flights) => {
       this.flights = flights;
       for (const flight of flights) {
-        //TODO help with this conditional
         if (flight.longitude && flight.latitude) {
           const long = flight.longitude;
           const lat = flight.latitude;
@@ -40,9 +35,12 @@ export class MarkerService {
           });
 
           circle.addTo(map);
+        } else {
+          // TODO: I understand that the longitude and latitude information could be null for different reasons, but I'm not sure how to handle the flight when this happens. I would need more information - emailed to ask
         }
       }
-      console.log('marker.service.ts', flights);
+
+      return flights;
     });
   }
 
@@ -51,28 +49,30 @@ export class MarkerService {
       this.airports = airports;
       for (const airport of airports) {
         {
-          const code = airport.icao;
           const long = airport.longitude;
           const lat = airport.latitude;
-          const name = airport.name;
 
           const marker = Leaflet.marker([lat, long]);
 
           marker.addTo(map);
         }
       }
-      console.log('marker.service.ts', airports);
+      return airports;
     });
   }
 
   plotCapitalMarkers(map: Leaflet.Map | Leaflet.LayerGroup<any>): void {
-    for (const cap of CAPITALS) {
-      const long = cap.longitude;
-      const lat = cap.latitude;
+    try {
+      for (const cap of CAPITALS) {
+        const long = cap.longitude;
+        const lat = cap.latitude;
 
-      const circle = Leaflet.circleMarker([lat, long], { radius: 0 });
+        const circle = Leaflet.circleMarker([lat, long], { radius: 0 });
 
-      circle.addTo(map);
+        circle.addTo(map);
+      }
+    } catch (err) {
+      console.error(err);
     }
   }
 }
