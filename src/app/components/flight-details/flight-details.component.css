@@ -1,16 +1,24 @@
+/* TODO for future implementation */
+
 .flight {
-  background: #f4f4f4;
+  background: #ffffff;
   margin: 5px;
   padding: 10px 20px;
-  cursor: pointer;
-}
-
-.flight.reminder {
-  border-left: 5px solid green;
+  font-size: small;
 }
 
 .flight h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.flight ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.flight li:not(:last-of-type) {
+  margin-right: 15px;
 }
