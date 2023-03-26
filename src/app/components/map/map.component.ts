@@ -46,12 +46,17 @@ export class MapComponent implements AfterViewInit {
   }
 
   private loadFlights() {
-    // set a timer to do this ever X seconds
     this.markerService.plotFlightMarkers(this.map);
+    // TODO automatically update map after xx seconds - need to figure out how to clear perviously plotted marker
+
+    // setInterval(() => {
+    //   this.markerService.plotFlightMarkers(this.map);
+    // }, 5000);
+    // TODO: make interval selectable through UI?
   }
 
   private loadLandmarks() {
-    this.markerService.plotAirportMarkers(this.map);
+    const airports = this.markerService.plotAirportMarkers(this.map);
     this.markerService.plotCapitalMarkers(this.map);
   }
 
