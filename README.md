@@ -17,7 +17,7 @@
 
 ## General Information
 
-As part of an interview assessment for Tailwind Scientific I was asked to connect to their API and plot some live and static data to a map. It was my first time building anything with Angular, and I learned on the fly! My biggest roadblock was actually the Typescript that I obviously need more practice with! It I used [Leftlet](https://leafletjs.com/) with [Open Street Map](https://www.openstreetmap.org/#map=5/53.357/-94.878) to create the map.
+As part of an interview assessment for Tailwind Scientific I was asked to connect to their API and plot some live and static data to a map. It was my first time building anything with Angular, and I learned on the fly! My biggest roadblock was actually the Typescript that I obviously need more practice with! I used [Leaflet](https://leafletjs.com/) with [Open Street Map](https://www.openstreetmap.org/#map=5/53.357/-94.878) to create the map.
 
 ## Tech Stack
 
@@ -79,20 +79,27 @@ Status: Complete
 
 Improvement Thoughts:
 
-The project is finished as per specs from Tailwind, but to spice things up a little I'd like to figure out how to change the markers to icons and change the flight icons to plans. I'd like to change the displayed data to map layers so you can show selected information. I'd like to implement an automatic reload as well to reload after a certain amount of time and I'd like to display a detailed list of the current as well as future flights. As part of these improvements, there are some currently unused components and styling that have been created with the hopes of continuing to build the app. These are things such as a button component as well as flight and airport components to display detailed information.
+The project is finished as per specs from Tailwind, but as it was a fun project I have some thoughts to improve it later on:
+
+- Figure out how to change the markers to icons and change the flight icons to plans, and airports to something else.
+- Change the displayed data to map layers so you can show different selected information.
+- Implement an automatic reload to refresh after a certain amount of time and allow the user to set what time intrval that will be. This will come with a coundown clock on the screen.
+- Display a detailed list of the current flights as well as upcoming scheduled flights.
+
+As part of these improvements, there are some currently unused components and styling that have been created with the hopes of continuing to build the app. These are things such as a button component as well as flight and airport components to display detailed information.
 
 I have left a few TODO notes around the app to help me remember all these things.
 
 To do:
 
-- [ ] change flight markers
+- [ ] change flight & airport markers
 - [ ] create layers for the map
-- [ ] create list of current flights
-- [ ] automatic refresh
+- [ ] create list of current & upcoming flights
+- [ ] automatic refresh timer
 
 ## Acknowledgements
 
-Many thanks to [Brad Traversy](https://traversymedia.com) for his easy to follow [Angular tutorial](https://www.youtube.com/watch?v=3dHNOWTI7H8). Thanks also to Chris Engelsma for their [two part Angular + Leaflet guide](https://www.digitalocean.com/community/tutorials/angular-angular-and-leaflet-marker-service) which a was big help displaying the map, connecting Leaflet to the API and displaying the response data.
+Many thanks to [Brad Traversy](https://traversymedia.com) for his easy to follow [Angular tutorial](https://www.youtube.com/watch?v=3dHNOWTI7H8). Thanks also to Chris Engelsma for their [two part Angular + Leaflet guide](https://www.digitalocean.com/community/tutorials/angular-angular-and-leaflet-marker-service) which was a` big help displaying the map, connecting Leaflet to the API and displaying the response data.
 
 ## Contact
 
