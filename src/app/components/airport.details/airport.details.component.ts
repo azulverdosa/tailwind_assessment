@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 import { Airport } from '../airports/airport.types';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,11 +7,15 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './airport.details.component.html',
   styleUrls: ['./airport.details.component.css'],
 })
-export class AirportDetailsComponent {
+export class AirportDetailsComponent implements AfterViewInit {
   @Input() airport: Airport;
   faTimes = faTimes;
 
   onClick() {
     console.log('Do something');
+  }
+
+  ngAfterViewInit(): void {
+    console.log('this.airport :>> ', this.airport);
   }
 }
