@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { map, catchError, retry } from 'rxjs/operators';
+import { catchError, retry } from 'rxjs/operators';
 
 import { Airport } from '../components/airports/airport.types';
 import { environment } from 'src/environments/environment.development';
 
-//create header for http 'options' parameter
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -19,14 +18,27 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AirportsService {
-  // define api url
   private apiUrl = `${environment.API_URL}/airports`;
 
-  //add HttpClient as provider
   constructor(private http: HttpClient) {}
 
-  //add observable
   getAirports(): Observable<Airport[]> {
-    return this.http.get<Airport[]>(this.apiUrl, httpOptions);
+    return this.http
+      .get<Airport[]>(this.apiUrl, httpOptions)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+  handleError(error: any) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(() => {
+      return errorMessage;
+    });
   }
 }
