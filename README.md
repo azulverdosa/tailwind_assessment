@@ -1,6 +1,6 @@
 # Tailwind Assessment
 
-> An assessment for Tailwind Scientific that plots a few airports in Canada and planes that are flying to and from those airports.
+> An assessment for Tailwind Scientific that plots a few airports in Canada and planes that are currently flying to and from those airports.
 
 ## Table of Contents
 
@@ -79,8 +79,7 @@ Status: Complete
 
 Improvement Thoughts:
 
-The project is finished as requested by Tailwind, but to spice things up a little I'd like to figure out how to change the markers to icons and change the flight icons to plans. I'd like to change the displayed data to map layers so you can show selected information. I'd like to implement a refresh button.
-and I'd like to display a detailed list of the current flights. As part of these improvements, there are some currently unused components and styling that have been created with the hopes of continuing to build the app.
+The project is finished as per specs from Tailwind, but to spice things up a little I'd like to figure out how to change the markers to icons and change the flight icons to plans. I'd like to change the displayed data to map layers so you can show selected information. I'd like to implement an automatic reload as well to reload after a certain amount of time and I'd like to display a detailed list of the current as well as future flights. As part of these improvements, there are some currently unused components and styling that have been created with the hopes of continuing to build the app. These are things such as a button component as well as flight and airport components to display detailed information.
 
 I have left a few TODO notes around the app to help me remember all these things.
 
@@ -89,7 +88,7 @@ To do:
 - [ ] change flight markers
 - [ ] create layers for the map
 - [ ] create list of current flights
-- [ ] automatic refresh button
+- [ ] automatic refresh
 
 ## Acknowledgements
 
