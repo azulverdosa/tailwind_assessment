@@ -1,0 +1,10 @@
+<!-- <p>current-flight-details works!</p> -->
+
+<div *ngIf="flight.longitude && flight.latitude" class="flight">
+  <h3>FLIGHT {{ flight.flightNumber }}</h3>
+  <ul>
+    <li>Leaving from: {{ flight.from }} at {{ flight.departsAt }}</li>
+    <li>Arriving at: {{ flight.to }} ETA: {{ flight.arrivesAt }}</li>
+    <li>current location:{{ flight.longitude }} & {{ flight.latitude }}</li>
+  </ul>
+</div>
