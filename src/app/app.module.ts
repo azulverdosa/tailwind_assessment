@@ -13,7 +13,8 @@ import { AirportsComponent } from './components/airports/airports.component';
 import { AirportDetailsComponent } from './components/airport.details/airport.details.component';
 import { MapComponent } from './components/map/map.component';
 import { FlightsComponent } from './components/flights/flights.component';
-import { FlightDetailsComponent } from './components/flight-details/flight-details.component';
+import { UpcomingFlightDetailsComponent } from './components/upcoming-flight-details/upcoming-flight-details.component';
+import { CurrentFlightDetailsComponent } from './components/current-flight-details/current-flight-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FlightDetailsComponent } from './components/flight-details/flight-detai
     AirportDetailsComponent,
     MapComponent,
     FlightsComponent,
-    FlightDetailsComponent,
+    UpcomingFlightDetailsComponent,
+    CurrentFlightDetailsComponent,
   ],
   imports: [
     BrowserModule,
