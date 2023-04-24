@@ -1,6 +1,12 @@
 <!-- TODO for later implementation to display flight information details -->
-<h3>Upcoming Departures: (all times are local)</h3>
-<app-flight-details
+<h3>Flights Currently On Route: (all times are local)</h3>
+<app-current-flight-details
   *ngFor="let flight of flights"
   [flight]="flight"
-></app-flight-details>
+></app-current-flight-details>
+
+<h3>Upcoming Departures: (all times are local)</h3>
+<app-upcoming-flight-details
+  *ngFor="let flight of flights"
+  [flight]="flight"
+></app-upcoming-flight-details>

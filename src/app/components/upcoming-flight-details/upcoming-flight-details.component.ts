@@ -4,11 +4,11 @@ import { Flight } from '../flights/flight.types';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-flight-details',
-  templateUrl: './flight-details.component.html',
-  styleUrls: ['./flight-details.component.css'],
+  selector: 'app-upcoming-flight-details',
+  templateUrl: './upcoming-flight-details.component.html',
+  styleUrls: ['./upcoming-flight-details.component.css'],
 })
-export class FlightDetailsComponent {
+export class UpcomingFlightDetailsComponent {
   @Input() flight: Flight;
   faCoffee = faCoffee;
 
