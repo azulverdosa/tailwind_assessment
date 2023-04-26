@@ -1,10 +1,26 @@
 <!-- <p>current-flight-details works!</p> -->
 
 <div *ngIf="flight.longitude && flight.latitude" class="flight">
-  <h3>FLIGHT {{ flight.flightNumber }}</h3>
+  <h3 (click)="onClickFlightDetails()">FLIGHT {{ flight.flightNumber }}</h3>
   <ul>
-    <li>Leaving from: {{ flight.from }} at {{ flight.departsAt }}</li>
-    <li>Arriving at: {{ flight.to }} ETA: {{ flight.arrivesAt }}</li>
-    <li>current location:{{ flight.longitude }} & {{ flight.latitude }}</li>
+    <li>
+      Departing from:
+      <!-- TODO abstract into seperate component -->
+      <span
+        (click)="onClickAirportDetails(flight.from)"
+        title="See {{ flight.from }} on the map"
+        >{{ flight.from }}</span
+      >
+      at {{ flight.departsAt }}
+    </li>
+    <li>
+      Arriving in:
+      <span
+        (click)="onClickAirportDetails(flight.to)"
+        title="See {{ flight.to }} on the map"
+        >{{ flight.to }}</span
+      >
+      ETA: {{ flight.arrivesAt }}
+    </li>
   </ul>
 </div>
