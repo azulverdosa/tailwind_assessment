@@ -16,17 +16,11 @@ export class CurrentFlightDetailsComponent {
   constructor(private markerService: MarkerService) {}
 
   onClickFlightDetails() {
-    console.log(
-      'this.flights :>> ',
-      this.markerService.flightMarkers[this.flight.flightNumber]?.openPopup()
-    );
+    this.markerService.flightMarkers[this.flight.flightNumber]?.openPopup();
   }
 
   onClickAirportDetails(icao: string) {
-    console.log(
-      'this.flights :>> ',
-      this.markerService.airportMarkers[icao]?.openPopup()
-    );
+    this.markerService.airportMarkers[icao]?.openPopup();
   }
 
   ngAfterViewInit(): void {}
