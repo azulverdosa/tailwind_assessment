@@ -20,8 +20,4 @@ export class HeaderComponent {
   planeUp = faPlaneUp;
   //TODO use fontawesome as plane icons as well
   // plane = faPlane;
-
-  updateTimerSelect() {
-    console.log('Refresh for automatic update');
-  }
 }
