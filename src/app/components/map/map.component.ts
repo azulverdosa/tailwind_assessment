@@ -2,13 +2,10 @@ import { Component, AfterViewInit } from '@angular/core';
 import * as Leaflet from 'leaflet';
 import { MarkerService } from '../../services/marker.service';
 
-const iconRetinaUrl = 'assets/marker-icon-2x.png';
-const iconUrl = 'assets/marker-icon.png';
-const shadowUrl = 'assets/marker-shadow.png';
 const iconDefault = Leaflet.icon({
-  iconRetinaUrl,
-  iconUrl,
-  shadowUrl,
+  iconRetinaUrl: 'assets/marker-icon-2x.png',
+  iconUrl: 'assets/marker-icon.png',
+  shadowUrl: 'assets/marker-shadow.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
