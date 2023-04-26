@@ -19,6 +19,8 @@ const httpOptions = {
 })
 export class FlightsService {
   private apiUrl = `${environment.API_URL}/currentflights`;
+  //TODO modifier for dictionary - later
+  // public allFlightsData = {};
 
   constructor(private http: HttpClient) {}
 
@@ -26,7 +28,17 @@ export class FlightsService {
     return this.http
       .get<Flight[]>(this.apiUrl, httpOptions)
       .pipe(retry(1), catchError(this.handleError));
+
+    //TODO transform return value array into dictionary
+    // this.flights = flights.reduce(
+    //   (acc, flight) => ({ ...acc, [flight.flightNumber]: flight }),
+    //   {}
+    // );
+
+    //TODO once array is transformed into dictionary, change MarkerService line 35 to iterate over dictionary - Object.values()
   }
+
+  //TODO add method to pull flight data on regualr interval - store in service and allow other components have access to results
 
   handleError(error: any) {
     let errorMessage = '';
