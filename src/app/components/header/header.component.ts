@@ -3,6 +3,8 @@ import {
   faLocationDot,
   faCircle,
   faDotCircle,
+  // faPlaneUp,
+  // faPlane,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -15,6 +17,9 @@ export class HeaderComponent {
   pin = faLocationDot;
   circle = faCircle;
   dotCircle = faDotCircle;
+  //TODO use fontawesome as plane icons
+  // plane = faPlane;
+  // planeUp = faPlaneUp;
 
   updateTimerSelect() {
     console.log('Refresh for automatic update');
