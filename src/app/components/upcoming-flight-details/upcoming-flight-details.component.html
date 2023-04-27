@@ -1,9 +1,25 @@
 <!-- TODO for later implementation to display flights where lat & long = null -->
 
 <div *ngIf="!flight.longitude && !flight.latitude" class="flight">
-  <h3>FLIGHT {{ flight.flightNumber }}</h3>
+  <h3>
+    <span title="Flight not yet assigned"
+      >FLIGHT {{ flight.flightNumber }}</span
+    >
+  </h3>
   <ul>
-    <li>Leaving from: {{ flight.from }} at {{ flight.departsAt }}</li>
-    <li>Arriving at: {{ flight.to }} ETA: {{ flight.arrivesAt }}</li>
+    <li>
+      Departing from:
+      <span>{{ flight.from }}</span>
+      at {{ flight.departsAt }}
+    </li>
+    <li>
+      Arriving at:
+      <span
+        (click)="onClickAirportDetails(flight.to)"
+        title="See {{ flight.to }} on the map"
+        >{{ flight.to }}</span
+      >
+      ETA: {{ flight.arrivesAt }}
+    </li>
   </ul>
 </div>
