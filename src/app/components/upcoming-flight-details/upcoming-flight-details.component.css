@@ -8,9 +8,15 @@
 }
 
 .flight h3 {
+  border-bottom: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.flight h3 span:hover {
+  cursor: pointer;
+  font-style: italic;
 }
 
 .flight ul {
@@ -21,4 +27,13 @@
 
 .flight li:not(:last-of-type) {
   margin-right: 15px;
+}
+
+.flight li span {
+  color: #2596be;
+}
+
+.flight li span:hover {
+  font-style: italic;
+  cursor: pointer;
 }
