@@ -24,6 +24,8 @@ export class MarkerService {
 
   plotFlightMarkers(map: Leaflet.Map | Leaflet.LayerGroup<any>): void {
     const planeMarker = Leaflet.icon({
+      // TODO change URL to fontawesome icon OR import to images file.
+      // TODO orient plane icon to point in the direction it is flying
       iconUrl:
         'https://icones.pro/wp-content/uploads/2021/08/symbole-d-avion-et-de-voyage-vert.png',
       iconSize: [31, 26], // size of the icon
